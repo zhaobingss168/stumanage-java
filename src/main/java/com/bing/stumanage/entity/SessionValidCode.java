@@ -22,7 +22,7 @@ import javax.persistence.Id;
 public class SessionValidCode {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private String sessionId;
-    private String validCode;
+    private int id; //主键id
+    private String sessionId; // sessionId
+    private String validCode; // 验证码
 }
