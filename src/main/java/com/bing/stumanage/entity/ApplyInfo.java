@@ -12,26 +12,25 @@ import javax.persistence.Id;
 import java.util.Date;
 
 /**
- * 2019-09-23 15:37:10
- * zhaobing
-*/
+ * @Description 报名信息
+ * @Author zhaobing
+ * @Date 2019/9/24 21:42
+ **/
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Serialization
-public class SysUser {
+public class ApplyInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;// 主键id
-    private String userName;// 用户名
-    private String password;// 密码
-    private int roleId;// 角色id
-    private String token; // token
-    private String salt; // 盐
-    private String random; //随机数
-    private String nickName; // 昵称
-    private int status; // 状态  0冻结  1正常
-    private Date loginTime; // 上次登录时间
-    private Date createTime; // 创建时间
+    private String stuName;// 学生姓名
+    private String stuPhone;// 学生电话
+    private String readingSchool;// 在读学校
+    private String readingMajor;//  在读专业
+    private String applySchool;//  报名学校
+    private String applyMajor;//  报名专业
+    private int payStatus;// 支付状态
+    private Date createtime;// 申请时间，创建时间
 }

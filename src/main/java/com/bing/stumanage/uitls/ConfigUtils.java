@@ -38,42 +38,4 @@ public class ConfigUtils {
         return getSysConfig("filePath");
     }
 
-    public static String getQrcodePath(){
-        return getSysConfig("qrcodePath");
-    }
-
-    public static String getQrcodeContent(){
-        return getSysConfig("qrcodeContent");
-    }
-
-    public static String getWechat_app_id() {
-
-        return "";
-    }
-
-    public static String getWechat_secret() {
-
-        return "";
-    }
-
-    public static String getWechat_pay_mch_id() {
-        return "";
-    }
-
-    public static String getWechat_notice_url() {
-
-        return "";
-    }
-
-    public static String getWechat_pay_key() {
-        return "";
-    }
-
-    public static String getYsAppKey(){
-        return getSysConfig("ysAppKey");
-    }
-
-    public static String getYsAppSecret(){
-        return getSysConfig("ysAppSecret");
-    }
 }
