@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.Query;
  **/
 
 public interface SessionValidCodeRepository extends JpaRepository<SessionValidCode,Integer> {
+
     @Query(value = "select * from session_valid_code where session_id = ?1",nativeQuery = true)
     SessionValidCode findOneBySessionId(String sessionId);
 }
