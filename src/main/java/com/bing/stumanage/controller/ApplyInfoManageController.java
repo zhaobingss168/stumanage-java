@@ -28,8 +28,8 @@ public class ApplyInfoManageController {
      * @return
      */
     @GetMapping("/queryByPage")
-    public ResponseMessage queryByPage(@RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "10") Integer size){
-        PageUtil pageUtil = applyInfoService.queryByPage(page,size);
+    public ResponseMessage queryByPage(String stuName,Integer payStatus,@RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "10") Integer size){
+        PageUtil pageUtil = applyInfoService.queryByPage(stuName,payStatus,page,size);
         if(null == pageUtil){
             return ResponseMessage.error();
         }else{
@@ -89,9 +89,9 @@ public class ApplyInfoManageController {
      * 获取所有，用于导出excel表格
      * @return
      */
-    @GetMapping("/getAll")
-    public ResponseMessage getAll(){
-        List<ApplyInfo> list = applyInfoService.getAll();
+    @GetMapping("/queryAll")
+    public ResponseMessage queryAll(String stuName,Integer payStatus){
+        List<ApplyInfo> list = applyInfoService.queryAll(stuName,payStatus);
         return ResponseMessage.success(list);
     }
 }

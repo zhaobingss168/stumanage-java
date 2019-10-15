@@ -6,7 +6,7 @@ import com.bing.stumanage.uitls.PageUtil;
 import java.util.List;
 
 public interface ApplyInfoService {
-    PageUtil queryByPage(Integer page, Integer size);
+    PageUtil queryByPage(String stuName,Integer payStatus,Integer page, Integer size);
 
     ApplyInfo save(ApplyInfo applyInfo);
 
@@ -14,5 +14,5 @@ public interface ApplyInfoService {
 
     void delete(Integer id);
 
-    List<ApplyInfo> getAll();
+    List<ApplyInfo> queryAll(String stuName,Integer payStatus);
 }

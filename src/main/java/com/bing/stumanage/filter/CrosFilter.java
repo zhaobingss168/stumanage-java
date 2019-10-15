@@ -29,7 +29,7 @@ public class CrosFilter implements Filter {
 
         HttpServletRequest request = (HttpServletRequest) req;
         HttpServletResponse response = (HttpServletResponse) res;
-        String []  allowDomain= {"*"};//测试环境允许的网址
+        String []  allowDomain= {"http://localhost:9528"};//测试环境允许的网址
         Set<String> allowedOrigins= new HashSet(Arrays.asList(allowDomain));
         String originHeader = request.getHeader("Origin");
         System.out.println("***********************跨域设置："+originHeader);

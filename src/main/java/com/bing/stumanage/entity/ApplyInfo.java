@@ -32,5 +32,5 @@ public class ApplyInfo {
     private String applySchool;//  报名学校
     private String applyMajor;//  报名专业
     private int payStatus;// 支付状态 0未支付，1已支付
-    private Date createtime;// 申请时间，创建时间
+    private Date createTime;// 申请时间，创建时间
 }

@@ -32,9 +32,9 @@ public class ApplyInfoServiceImpl implements ApplyInfoService{
      * @return
      */
     @Override
-    public PageUtil queryByPage(Integer page, Integer size) {
-        List<ApplyInfo> list = applyInfoRepository.queryByPage((page-1)*size, size);
-        int count = applyInfoRepository.queryByPageTotalCount();
+    public PageUtil queryByPage(String stuName,Integer payStatus,Integer page, Integer size) {
+        List<ApplyInfo> list = applyInfoRepository.queryByPage(stuName,payStatus,(page-1)*size, size);
+        int count = applyInfoRepository.queryByPageTotalCount(stuName,payStatus);
         PageUtil pageList = new PageUtil(page,size,count,list);
         return pageList;
     }
@@ -46,7 +46,7 @@ public class ApplyInfoServiceImpl implements ApplyInfoService{
      */
     @Override
     public ApplyInfo save(ApplyInfo applyInfo) {
-        applyInfo.setCreatetime(new Date());// 初始创建时间
+        applyInfo.setCreateTime(new Date());// 初始创建时间
         applyInfo.setPayStatus(0);// 初始付款状态为未付款
         return applyInfoRepository.save(applyInfo);
     }
@@ -87,8 +87,8 @@ public class ApplyInfoServiceImpl implements ApplyInfoService{
      * @return
      */
     @Override
-    public List<ApplyInfo> getAll() {
-        return applyInfoRepository.findAll();
+    public List<ApplyInfo> queryAll(String stuName,Integer payStatus) {
+        return applyInfoRepository.queryAll(stuName,payStatus);
     }
 
 
