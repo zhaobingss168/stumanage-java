@@ -21,4 +21,7 @@ public interface SysUserRepository extends JpaRepository<SysUser,Integer> {
             "and (user_name like CONCAT('%',?1,'%') or ?1 is null) " +
             "and (nick_name like CONCAT('%',?2,'%') or ?2 is null ) " ,nativeQuery = true)
     int queryByPageTotalCount(String userName,String nickName);
+
+    @Query(value="select * from sys_user where token= ?1 and role_id = ?2",nativeQuery = true)
+    SysUser findTokenAndRoleId(String token, Integer integer);
 }

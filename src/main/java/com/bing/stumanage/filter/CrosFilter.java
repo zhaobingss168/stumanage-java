@@ -32,7 +32,6 @@ public class CrosFilter implements Filter {
         String []  allowDomain= {"http://localhost:9528","http://localhost:8080"};//测试环境允许的网址
         Set<String> allowedOrigins= new HashSet(Arrays.asList(allowDomain));
         String originHeader = request.getHeader("Origin");
-        System.out.println("***********************跨域设置："+originHeader);
         if (allowedOrigins.contains(originHeader)) {
             response.setHeader("Access-Control-Allow-Origin", originHeader);//测试环境允许的网址
             response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE,PUT");//真实请求允许的方法

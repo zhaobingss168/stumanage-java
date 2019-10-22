@@ -34,6 +34,7 @@ public class SysUserServiceImpl implements SysUserService {
     @Override
     public SysUser save(SysUser sysUser){
         sysUser.setCreateTime(new Date());
+        sysUser.setRoleId(1);
         return sysUserRepository.save(sysUser);
     }
 

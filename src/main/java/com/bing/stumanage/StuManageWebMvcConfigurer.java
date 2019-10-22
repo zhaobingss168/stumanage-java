@@ -29,7 +29,8 @@ public class StuManageWebMvcConfigurer implements WebMvcConfigurer {
                 excludePathPatterns("/swagger-ui.html").//如下四个是放开对swagger的限制
                 excludePathPatterns("/webjars/**").
                 excludePathPatterns("/v2/**").
-                excludePathPatterns("/swagger-resources/**")
+                excludePathPatterns("/swagger-resources/**").
+                excludePathPatterns("/applyInfoManage/mobileSave")
         ;
     }
     @Override

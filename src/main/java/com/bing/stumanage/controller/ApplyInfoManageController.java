@@ -94,4 +94,20 @@ public class ApplyInfoManageController {
         List<ApplyInfo> list = applyInfoService.queryAll(stuName,payStatus);
         return ResponseMessage.success(list);
     }
+
+
+    @PostMapping("/mobileSave")
+    public ResponseMessage mobileSave(@RequestBody ApplyInfo applyInfo){
+        try{
+            ApplyInfo result = applyInfoService.save(applyInfo);
+            if(null == result){
+                return ResponseMessage.error();
+            }else{
+                return ResponseMessage.success(result);
+            }
+        }catch (Exception e){
+            return ResponseMessage.error();
+        }
+    }
+
 }
