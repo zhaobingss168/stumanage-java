@@ -3,20 +3,27 @@ package com.bing.stumanage.repository;
 import com.bing.stumanage.entity.SysConfig;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
- * create by zhaobing
- * date 2019/4/11 下午7:34
- **/
-
+ * 系统配置Repository
+ */
+@Repository
 public interface SysConfigRepository extends JpaRepository<SysConfig,Integer> {
 
-    /**
-     * 查询 系统配置 by code
-     * @param code
-     * @return
-     */
-    @Query(value="select * from sys_config sc where sc.config_code = ?1 and status = 1",nativeQuery = true)
-    SysConfig findByConfigCode(String code);
 
+    @Query(value = "select * from sys_config where 1 = 1 " +
+            "and (config_name like CONCAT('%',?1,'%') or ?1 is null) " +
+            "order by create_time asc limit ?2,?3 ",nativeQuery = true)
+    List<SysConfig> querySysConfigByPage(String configName, int i, Integer size);
+
+    @Query(value = "select count(1) from sys_config where 1 = 1 " +
+            "and (config_name like CONCAT('%',?1,'%') or ?1 is null) "
+            ,nativeQuery = true)
+    int querySysConfigByPageTotalCount(String configName);
+
+    @Query(value = "select * from sys_config where  config_code = ?1" ,nativeQuery = true)
+    SysConfig findByConfigCode(String code);
 }

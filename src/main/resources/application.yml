@@ -1,0 +1,20 @@
+server:
+    port: 8001
+spring:
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        password: 123456
+        url: jdbc:mysql://localhost:3306/stumanage?useSSL=false&useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2b8
+        username: root
+    jackson:
+        time-zone: GMT+8
+        date-format: yyyy-MM-dd HH:mm:ss
+    jpa:
+        database-platform: org.hibernate.dialect.MySQL5Dialect
+        properties:
+            hibernate:
+                format_sql: true
+                hbm2ddl:
+                    auto: update
+        show-sql: true
+
