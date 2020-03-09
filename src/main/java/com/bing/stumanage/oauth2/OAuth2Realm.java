@@ -37,7 +37,6 @@ public class OAuth2Realm extends AuthorizingRealm {
      */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-        System.out.println("————权限认证————");
         SysUser user = (SysUser)principals.getPrimaryPrincipal();
         // 用户权限列表，根据用户拥有的权限标识与如 @permission标注的接口对比，决定是否可以调用接口
         Set<String> permsSet = sysUserService.findPermissionsByUserName(user.getUsername());
@@ -51,7 +50,6 @@ public class OAuth2Realm extends AuthorizingRealm {
      */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
-        System.out.println("————身份认证方法————");
         String token = (String) authenticationToken.getPrincipal();
         // 根据accessToken，查询用户token信息
         SysUserToken sysUserToken = sysUserTokenService.findByToken(token);
